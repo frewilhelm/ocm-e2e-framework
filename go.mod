@@ -7,6 +7,10 @@ replace github.com/opencontainers/go-digest => github.com/opencontainers/go-dige
 // OCM dependent re-writes
 replace github.com/texttheater/golang-levenshtein => github.com/texttheater/golang-levenshtein v0.0.0-20200805054039-cae8b0eaed6c
 
+// kube-openapi 20261001 switched to structured-merge-diff/v7, incompatible with k8s 0.37.x (still on v6); pin to the v6 release until the k8s deps move to v7.
+// Remove this replace when bumping k8s.io/* to v0.38+.
+replace k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20260821135717-be32def86098
+
 require (
 	code.gitea.io/sdk/gitea v0.25.1
 	github.com/fluxcd/cli-utils v1.4.0
@@ -175,11 +179,14 @@ require (
 	github.com/go-openapi/runtime/server-middleware v0.33.2 // indirect
 	github.com/go-openapi/spec v1.0.0 // indirect
 	github.com/go-openapi/strfmt v0.27.3 // indirect
+	github.com/go-openapi/swag v0.29.2 // indirect
+	github.com/go-openapi/swag/cmdutils v0.29.2 // indirect
 	github.com/go-openapi/swag/conv v0.29.2 // indirect
 	github.com/go-openapi/swag/fileutils v0.29.2 // indirect
 	github.com/go-openapi/swag/jsonutils v0.29.2 // indirect
 	github.com/go-openapi/swag/loading v0.29.2 // indirect
 	github.com/go-openapi/swag/mangling v0.29.2 // indirect
+	github.com/go-openapi/swag/netutils v0.29.2 // indirect
 	github.com/go-openapi/swag/pools v0.29.2 // indirect
 	github.com/go-openapi/swag/stringutils v0.29.2 // indirect
 	github.com/go-openapi/swag/typeutils v0.29.2 // indirect
@@ -385,5 +392,4 @@ require (
 	sigs.k8s.io/randfill v1.0.0 // indirect
 	sigs.k8s.io/release-utils v0.12.4 // indirect
 	sigs.k8s.io/structured-merge-diff/v6 v6.4.2 // indirect
-	sigs.k8s.io/structured-merge-diff/v7 v7.0.0 // indirect
 )
